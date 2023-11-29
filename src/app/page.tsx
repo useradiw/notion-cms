@@ -1,9 +1,7 @@
-import Image from 'next/image'
+import Contents from "@/components/display/contents";
 
 export default function Home() {
   return (
-    <>
-      <div>Home</div>
-    </>
+    <Contents />
   )
 }

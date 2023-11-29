@@ -7,7 +7,7 @@ const dbid = process.env.NOTION_DATABASE_ID;
 export async function GET( req: Request ) {
     if (!secret || !dbid) return NextResponse.json({message: "Some Environment Variable are missing."}, {status: 500})
 
-    try {
+        try {
         const notion = new Client({auth: secret})
         const query = await notion.databases.query({
             database_id: dbid,
