@@ -12,6 +12,7 @@ type fetchData = {
   properties: properties;
   url: string;
   public_url: object;
+  request_id: string;
 };
 
 type annotations = {
