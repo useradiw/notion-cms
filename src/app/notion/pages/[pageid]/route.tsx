@@ -14,7 +14,7 @@ export async function GET( req: Request, { params }: { params: { pageid: string}
             page_id: pageid,
         }) as fetchData;
         const data = {
-            created: query.created_time,
+            created: query.properties["Created time"].created_time,
             title: query.properties.Title.title[0].text.content,
             highlight: query.properties.Highlight.rich_text[0].text.content,
             tags: query.properties.Tags.multi_select.map((item) => item.name),
