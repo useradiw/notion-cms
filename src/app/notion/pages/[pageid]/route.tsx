@@ -14,10 +14,12 @@ export async function GET( req: Request, { params }: { params: { pageid: string}
             page_id: pageid,
         }) as fetchData;
         const data = {
-            created: query.properties["Created time"].created_time,
+            cover: query.cover.external.url,
+            created: query.properties.Created.date.start,
             title: query.properties.Title.title[0].text.content,
             highlight: query.properties.Highlight.rich_text[0].text.content,
             tags: query.properties.Tags.multi_select.map((item) => item.name),
+            author: query.properties.Author.rich_text[0].text.content,
         };
         const n2m = new NotionToMarkdown({ notionClient: notion });
         const mdblocks = await n2m.pageToMarkdown(pageid);

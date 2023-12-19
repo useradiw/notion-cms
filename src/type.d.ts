@@ -5,7 +5,12 @@ type fetchData = {
   last_edited_time: string;
   created_by: object;
   last_edited_by: object;
-  cover: object;
+  cover: {
+    type: string;
+    external: {
+      url: string;
+    };
+  };
   icon: object;
   parent: object;
   archived: boolean;
@@ -40,7 +45,6 @@ type richText = {
 };
 
 type properties = {
-  Article: richText;
   Tags: {
     id: string;
     type: string;
@@ -65,44 +69,14 @@ type properties = {
       href: string;
     }[];
   };
-  slug: richText;
-  "Created time": {
+  Author: richText;
+  Created: {
     id: string;
     type: string;
-    created_time: string;
+    date: {
+      start: string;
+      end: string;
+      time_zone: string;
+    };
   };
-};
-
-type heading = {
-  rich_text: richText;
-  is_toggleable: boolean;
-  color: string;
-};
-
-type blockdata = {
-  object: string;
-  id: string;
-  parent: {
-    type: string;
-    page_id: string;
-  };
-  created_time: string;
-  last_edited_time: string;
-  created_by: {
-    object: string;
-    id: string;
-  };
-  last_edited_by: {
-    object: string;
-    id: string;
-  };
-  has_children: boolean;
-  archived: boolean;
-  type: string;
-  paragraph?: {
-    rich_text: richText;
-    color: string;
-  };
-  heading_1?: heading;
-  heading_2?: heading;
 };
