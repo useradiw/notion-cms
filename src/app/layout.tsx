@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import Header from "@/components/head";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} px-2 flex flex-col gap-1`}>
+      <body className={`${inter.className} px-2 flex flex-col gap-1 bg-slate-50 bg-[url("../assets/image/bg.svg")]`}>
         <Navbar />
         {children}
       </body>
