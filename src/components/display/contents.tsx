@@ -12,7 +12,7 @@ const Contents = async () => {
     const data: fetchData[] = values.body;
     const display = data.map((item, i) => (
         <div className="flex flex-col border-2 border-slate-300 rounded-md" key={i}>
-            <div className="max-h-[30svh] overflow-hidden rounded-t-md">
+            <div className="overflow-hidden rounded-t-md">
                 <Image 
                     src={item.cover.external.url}
                     alt="Cover Image"
@@ -21,7 +21,7 @@ const Contents = async () => {
                     style={{
                         aspectRatio: "16:9",
                     }}
-                    className="w-full"
+                    className="w-full h-[55svw] object-fill"
                 />
             </div>
             <div className="px-1 py-4 bg-slate-100 flex flex-col gap-3 rounded-b-md">
@@ -41,7 +41,7 @@ const Contents = async () => {
         </div>
     ))
     return (
-        <div className="flex flex-col gap-3 mx-auto mb-2">
+        <div className="flex flex-col gap-3 mx-auto mb-8">
             {display}
         </div>
     );
