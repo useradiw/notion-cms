@@ -13,17 +13,17 @@ const Content = async ({pageid}: pageProps) => {
     const head = res.head;
     return (
         <>
-            <section>
-                <div className="overflow-hidden max-h-40">
+            <section className="bg-slate-100/70 mb-8">
+                <div>
                     <Image 
                         src={head.cover}
                         alt="Cover Image"
-                        width={200}
-                        height={200}
+                        width={400}
+                        height={400}
                         style={{
                             aspectRatio: "16:9",
                         }}
-                        className="w-full"
+                        className="object-scale-down w-full"
                     />
                 </div>
                 <h1 className="text-5xl text-slate-900 font-extrabold text-center mt-2">{head.title}</h1>
@@ -32,12 +32,12 @@ const Content = async ({pageid}: pageProps) => {
                         <h6 className="text-sm border rounded-md px-2 bg-slate-300" key={i}>{item}</h6>
                     )}
                 </div>
-                <h2 className="text-center mt-2">{head.highlight}</h2>
+                <h2 className="font-semibold text-lg mt-2">{head.highlight}</h2>
                 <h5 className="text-center font-semibold mt-2">{head.author}</h5>
                 <h5 className="text-center mt-2 text-sm text-slate-700">{head.created}</h5>
-            </section>
-            <section className="prose">
-                <Markdown remarkPlugins={[remarkGfm, html, emoji]}>{res.body}</Markdown>
+                <div className="mt-4 prose">
+                    <Markdown remarkPlugins={[remarkGfm, html, emoji]}>{res.body}</Markdown>
+                </div>
             </section>
         </>
     )
