@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useRef, useEffect } from "react";
 import Button from "@/components/button";
+import Close from "@/assets/image/close.svg";
 
 interface Props {
     children: React.ReactNode,
@@ -51,8 +52,8 @@ export default function Modal (props: Props) {
                         <div>
                             <h1 className="font-semibold text-lg">{title}</h1>
                         </div>
-                        <div>
-                            <Button text="X" onClick={closeDialog}/>
+                        <div className="my-auto">
+                            <Button icon={Close} width={20} height={20} onClick={closeDialog} />
                         </div>
                     </div>
                     <div>

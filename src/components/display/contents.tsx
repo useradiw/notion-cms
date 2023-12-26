@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Button from "@/components/button";
 
 const getData = async () => {
     const req = await fetch("http://localhost:3000/notion/", {cache: "no-store"});
@@ -34,9 +34,9 @@ const Contents = async () => {
                     })}
                 </div>
                 <div>{item.properties.Highlight.rich_text[0].text.content}</div>
-                <Link href={`blogs/${item.id}`}>
-                    <div className="px-4 py-1 border border-slate-400 rounded-md bg-slate-300 cursor-pointer w-32 text-center mt-3 mx-auto">Read More</div>
-                </Link>
+                <div className="mx-auto">
+                    <Button text="Read More" href={`blogs/${item.id}`} className="px-4 py-1 border border-slate-400 rounded-md bg-slate-300 cursor-pointer w-32"/>
+                </div>
             </div>
         </div>
     ))
