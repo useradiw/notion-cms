@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import emoji from "remark-emoji";
 import Markdown from "react-markdown";
 import Image from "next/image";
+import Tags from "@/components/tags";
 
 interface pageProps {
     pageid: string,
@@ -29,7 +30,7 @@ const Content = async ({pageid}: pageProps) => {
                 <h1 className="text-5xl text-slate-900 font-extrabold text-center mt-2">{head.title}</h1>
                 <div className="flex flex-row gap-2 mt-2 justify-center items-center">
                     {head.tags.map((item: string, i: number) => 
-                        <h6 className="text-sm border rounded-md px-2 bg-slate-300" key={i}>{item}</h6>
+                        <Tags key={i} text={item} />
                     )}
                 </div>
                 <h2 className="font-semibold text-lg mt-2">{head.highlight}</h2>

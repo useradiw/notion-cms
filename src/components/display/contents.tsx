@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/button";
+import Tags from "@/components/tags";
 
 const getData = async () => {
     const req = await fetch("http://localhost:3000/notion/", {cache: "no-store"});
@@ -29,7 +30,7 @@ const Contents = async () => {
                 <div className="flex flex-row gap-1">
                     {item.properties.Tags.multi_select.map((data, i) => {
                         return (
-                            <span className="px-2 bg-green-200 text-slate-500 rounded-md text-xs" key={i}>{data.name}</span>
+                            <Tags key={i} text={data.name} />
                         )
                     })}
                 </div>
